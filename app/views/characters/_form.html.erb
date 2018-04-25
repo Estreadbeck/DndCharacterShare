@@ -10,18 +10,28 @@
     <%= c.text_field :race %>
   </div>
 
-  <div>
-    <%= c.label :character_class %>
-    <%= c.text_field :character_class %>
+  <div class="form-group">
+    <%= c.label :character_class_id %>
+    <%= c.collection_select(:character_class_id, CharacterClass.all, :id, :title,
+                            {
+                              include_blank: false,
+
+                            },
+                            class: 'form-control'
+                            ) %>   
+
   </div>
+
   <div>
     <%= c.label :level %>
-    <%= c.text_field :level %>
+    <%= c.number_field :level %>
   </div>
+
   <div>
     <%= c.label :backstory %>
     <%= c.text_field :backstory %>
   </div>
+
   <div>
     Upload a character image: <%= c.file_field :character_image %>
   </div>
