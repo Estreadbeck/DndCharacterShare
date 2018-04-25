@@ -1,0 +1,35 @@
+<%= form_for(@character) do |c| %>
+
+  <div>
+    <%= c.label :name %>
+    <%= c.text_field :name %>
+  </div>
+
+  <div>
+    <%= c.label :race %>
+    <%= c.text_field :race %>
+  </div>
+
+  <div>
+    <%= c.label :character_class %>
+    <%= c.text_field :character_class %>
+  </div>
+  <div>
+    <%= c.label :level %>
+    <%= c.text_field :level %>
+  </div>
+  <div>
+    <%= c.label :backstory %>
+    <%= c.text_field :backstory %>
+  </div>
+  <div>
+    Upload a character image: <%= c.file_field :character_image %>
+  </div>
+
+  <div>
+    <%= c.submit 'Save Character' %>
+  </div>
+
+<% end %>
+
+<div><%= link_to 'Back', characters_path %></div>

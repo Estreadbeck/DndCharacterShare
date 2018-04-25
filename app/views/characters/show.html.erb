@@ -2,7 +2,7 @@
 <div>Race: <%= @character.race %></div>
 <div>Class: <%= @character.character_class %> Level: <%= @character.level %></div>
 <div>Backstory: <%= @character.backstory %></div>
-<div><%= image_tag @character.character_image %></div>
+<div><%= image_tag @character.character_image, width: '350px', alt: 'character image' %></div>
 
 <div>
   <div><%= link_to "Edit Character", edit_character_path(@character) %></div>
