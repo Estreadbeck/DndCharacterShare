@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :characters
   get 'about', to: 'pages#about'
+  get 'character/:id', to: 'characters#show', as: 'character_show'
 
   root to: 'pages#home'
 

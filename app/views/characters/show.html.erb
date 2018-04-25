@@ -1,0 +1,11 @@
+<div>Name: <%= @character.name %></div>
+<div>Race: <%= @character.race %></div>
+<div>Class: <%= @character.character_class %> Level: <%= @character.level %></div>
+<div>Backstory: <%= @character.backstory %></div>
+<div><%= image_tag @character.character_image %></div>
+
+<div>
+  <div><%= link_to "Edit Character", edit_character_path(@character) %></div>
+  <div><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  <div><%= link_to 'Back', characters_path %></div>
+</div>

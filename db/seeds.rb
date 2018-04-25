@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+character_classes = %w(fighter druid wizard barbarian paladin bard)
+
+5.times do |character|
+  Character.create!(
+    name: "Character #{character}",
+    race: "Human",
+    level: 1,
+    character_class: "#{character_classes.sample}",
+    character_image: "http://via.placeholder.com/350x350",
+    backstory: "my sob story"
+    )
+end
+
+puts "created 5 characters"
