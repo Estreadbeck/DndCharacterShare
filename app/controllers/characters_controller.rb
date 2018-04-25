@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
 
   def sort
     params[:order].each do |key, value|
-      Character.find(value[:id]).update(position: value[:position])
+      Character.friendly.find(value[:id]).update(position: value[:position])
     end
 
     render body: nil
@@ -54,7 +54,7 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @character = Character.find(params[:id])
+    @character = Character.friendly.find(params[:id])
   end
 
   def destroy
@@ -66,15 +66,15 @@ class CharactersController < ApplicationController
   end
 
   def set_character
-    @character = Character.find(params[:id])
+    @character = Character.friendly.find(params[:id])
   end
 
   private
 
   def character_params
     params.require(:character).permit(:name,
-                                      :race,
-                                      :character_class,
+                                      :race_id,
+                                      :character_class_id,
                                       :level,
                                       :backstory,
                                       :character_image

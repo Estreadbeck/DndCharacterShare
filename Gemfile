@@ -58,4 +58,6 @@ gem 'carrierwave-aws', '~> 1.3'
 
 gem 'mini_magick', '~> 4.8'
 
+gem 'friendly_id', '~> 5.2', '>= 5.2.4'
+
 
