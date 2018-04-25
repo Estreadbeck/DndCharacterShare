@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425224500) do
+ActiveRecord::Schema.define(version: 20180425225512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20180425224500) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.string "race"
     t.text "character_image"
     t.text "backstory"
     t.datetime "created_at", null: false
@@ -32,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180425224500) do
     t.integer "level", default: 1
     t.string "slug"
     t.bigint "character_class_id"
+    t.bigint "race_id"
     t.index ["slug"], name: "index_characters_on_slug", unique: true
   end
 
@@ -47,5 +47,13 @@ ActiveRecord::Schema.define(version: 20180425224500) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "races", force: :cascade do |t|
+    t.string "race_name"
+    t.text "race_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "characters", "character_classes"
+  add_foreign_key "characters", "races"
 end

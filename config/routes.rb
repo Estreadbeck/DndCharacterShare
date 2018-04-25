@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :character_classes, only: [:index, :show]
+  resources :races, only: [:index, :show]
 
   resources :characters
   get 'about', to: 'pages#about'

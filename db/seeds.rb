@@ -9,15 +9,23 @@
 3.times do |character_class|
   CharacterClass.create!(
     title: "Sample Class #{character_class}",
-    description: 'this is a sample class'
+    description: 'This is a sample class'
     )
 end
 puts "created 3 classes"
 
+4.times do |race|
+  Race.create!(
+    race_name: "Sample Race #{race}",
+    race_description: "A sample character race"
+    )
+end
+puts 'created 4 races'
+
 5.times do |character|
   Character.create!(
     name: "Character #{character}",
-    race: "Human",
+    race_id: Race.first.id,
     level: 1,
     character_image: "http://via.placeholder.com/350x350",
     backstory: "my sob story",

@@ -1,5 +1,5 @@
 <div>Name: <%= @character.name %></div>
-<div>Race: <%= @character.race %></div>
+<div>Race: <%= @character.race.race_name %></div>
 <div>Class: <%= @character.character_class.title %> Lvl: <%= @character.level %> <%= @character.character_class.description %> </div>
 <div>Backstory: <%= @character.backstory %></div>
 <div><%= image_tag character_img(@character.character_image), width: '350px', alt: 'character image' %></div>
