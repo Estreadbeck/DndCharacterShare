@@ -1,0 +1,10 @@
+<div>Race: <%= @race.race_name %></div>
+<div>Description: <%= @race.race_description %></div>
+
+<div>
+  <% if logged_in?(:site_admin) %>
+    <div><%= link_to "Edit Race", edit_race_path(@race) %></div>
+    <div><%= link_to 'Delete Race', @race, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <% end %>
+  <div><%= link_to 'Back', admin_dashboard_path %></div>
+</div>

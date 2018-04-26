@@ -8,4 +8,14 @@ class PagesController < ApplicationController
   def public_characters
     @character = Character.published
   end
+
+  def admin_dashboard
+    if logged_in?(:site_admin)
+      @character = Character.all
+      @character_class = CharacterClass.all
+      @race = Race.all
+    else
+      redirect_to root_path, message: "You are not authorized to access this page"
+    end
+  end
 end

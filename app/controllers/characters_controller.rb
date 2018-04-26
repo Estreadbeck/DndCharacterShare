@@ -1,9 +1,7 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:edit, :update, :destroy, :show, :toggle_status]
   def index
-    if logged_in?(:site_admin)
-      @character = Character.all
-    elsif current_user.is_a?(GuestUser)
+    if current_user.is_a?(GuestUser)
       redirect_to root_path, notice: "You need to be logged in to access this page"
     elsif current_user
       @character = Character.characters_by(current_user)
@@ -55,7 +53,7 @@ class CharactersController < ApplicationController
   def destroy
     @character.destroy
     respond_to do |format|
-      format.html { redirect_to characters_url, notice: 'Successfully destroyed. For science. You monster.' }
+      format.html { redirect_to characters_url, notice: "#{@character.name} has been deleted." }
       
     end
   end
@@ -67,7 +65,7 @@ class CharactersController < ApplicationController
       @character.personal!
     end
         
-    redirect_to blogs_url, notice: 'Post status has been updated.'
+    redirect_to characters_url, notice: 'Character status has been updated.'
   end
 
 
