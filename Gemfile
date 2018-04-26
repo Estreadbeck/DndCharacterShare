@@ -60,4 +60,6 @@ gem 'mini_magick', '~> 4.8'
 
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
 
+gem 'devise', '~> 4.4', '>= 4.4.3'
+
 
