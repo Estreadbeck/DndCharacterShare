@@ -1,4 +1,5 @@
 class Character < ApplicationRecord
+  enum status: {private: 0, published: 1}
   extend FriendlyId
   friendly_id :name, use: :slugged
   mount_uploader :character_image, CharacterUploader
