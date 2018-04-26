@@ -1,10 +1,12 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:edit, :update, :destroy, :show, :toggle_status]
   def index
-    if current_user
+    if logged_in?(:site_admin)
+      @character = Character.all
+    elsif current_user.is_a?(GuestUser)
+      redirect_to root_path, notice: "You need to be logged in to access this page"
+    elsif current_user
       @character = Character.characters_by(current_user)
-    else
-      redirect_to root_path, notice: "You need to be logged in to see this"
     end
   end
 

@@ -5,14 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+2.times do |user|
+    User.create!(
+        email: "test#{user}@test.com",
+        password: "qwerty",
+        password_confirmation: "qwerty",
+        name: "Regular User #{user}"
+    )
+end
+puts "2 regular users created"
 
 User.create!(
-    email: "test@test.com",
-    password: "qwerty",
-    password_confirmation: "qwerty",
-    name: "Regular User"
-)
-puts "1 regular user created"
+    email: "admin@test.com",
+    password: "ytrewq",
+    password_confirmation: "ytrewq",
+    name: 'Admin User',
+    roles: 'site_admin'
+    )
+puts "1 admin user created"
 
 
 3.times do |character_class|
@@ -42,6 +52,19 @@ puts 'created 4 races'
     user_id: User.last.id
     )
 end
-puts "created 5 characters"
+puts "created 5 characters for user 1"
+
+5.times do |character|
+  Character.create!(
+    name: "Character #{character + 10}",
+    race_id: Race.last.id,
+    level: 1,
+    character_image: "http://via.placeholder.com/350x350",
+    backstory: "my sob story",
+    character_class_id: CharacterClass.first.id,
+    user_id: User.first.id
+    )
+end
+puts "created 5 characters user 2"
 
 

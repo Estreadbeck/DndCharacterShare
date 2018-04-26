@@ -67,3 +67,5 @@ gem 'bootstrap', '~> 4.1'
 gem 'jquery-rails'
 
 gem 'pry'
+
+gem 'petergate', '~> 1.8', '>= 1.8.1'
