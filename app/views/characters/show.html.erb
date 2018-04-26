@@ -1,3 +1,5 @@
+
+
 <% if @character.personal? %>
   <h3>This character is Private</h3>
 <% elsif @character.published? %>
@@ -10,7 +12,9 @@
 <div><%= image_tag character_img(@character.character_image), width: '350px', alt: 'character image' %></div>
 
 <div>
-  <div><%= link_to "Edit Character", edit_character_path(@character) %></div>
-  <div><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  <% if current_user.id == @character.user_id %>
+    <div><%= link_to "Edit Character", edit_character_path(@character) %></div>
+    <div><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  <% end %>
   <div><%= link_to 'Back', characters_path %></div>
 </div>

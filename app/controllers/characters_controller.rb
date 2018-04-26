@@ -1,7 +1,11 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:edit, :update, :destroy, :show, :toggle_status]
   def index
-    @character = Character.all
+    if current_user
+      @character = Character.characters_by(current_user)
+    else
+      redirect_to root_path, notice: "You need to be logged in to see this"
+    end
   end
 
   def new
@@ -11,6 +15,7 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
+    @character.user_id = current_user.id
 
     respond_to do |format|
       if @character.save
@@ -68,6 +73,7 @@ class CharactersController < ApplicationController
 
   def set_character
     @character = Character.friendly.find(params[:id])
+    @character.user_id = current_user.id
   end
 
   def character_params
@@ -77,6 +83,7 @@ class CharactersController < ApplicationController
                                       :level,
                                       :backstory,
                                       :status,
+                                      :user_id,
                                       :character_image
                                       )
   end

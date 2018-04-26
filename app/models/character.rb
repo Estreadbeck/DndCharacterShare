@@ -8,5 +8,8 @@ class Character < ApplicationRecord
   validates :level, :inclusion => 1..20
   belongs_to :character_class
   belongs_to :race
+  belongs_to :user, optional: true
+
+  scope :characters_by, ->(user) { where(user_id: user.id) }
 
 end

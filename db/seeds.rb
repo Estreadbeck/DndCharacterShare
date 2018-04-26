@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create!(
+    email: "test@test.com",
+    password: "qwerty",
+    password_confirmation: "qwerty",
+    name: "Regular User"
+)
+puts "1 regular user created"
+
+
 3.times do |character_class|
   CharacterClass.create!(
     title: "Sample Class #{character_class}",
@@ -29,7 +38,8 @@ puts 'created 4 races'
     level: 1,
     character_image: "http://via.placeholder.com/350x350",
     backstory: "my sob story",
-    character_class_id: CharacterClass.last.id
+    character_class_id: CharacterClass.last.id,
+    user_id: User.last.id
     )
 end
 puts "created 5 characters"
