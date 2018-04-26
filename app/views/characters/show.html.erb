@@ -1,3 +1,8 @@
+<% if @character.personal? %>
+  <h3>This character is Private</h3>
+<% elsif @character.published? %>
+  <h3>This character is Public</h3>
+<% end %>
 <div>Name: <%= @character.name %></div>
 <div>Race: <%= @character.race.race_name %></div>
 <div>Class: <%= @character.character_class.title %> Lvl: <%= @character.level %> <%= @character.character_class.description %> </div>

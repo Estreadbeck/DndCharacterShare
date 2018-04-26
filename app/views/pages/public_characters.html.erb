@@ -1,1 +1,6 @@
 <h1>Public Characters</h1>
+
+<% @character.each do |character| %>
+
+  <div><%= link_to character.name, character_show_path(character) %></div>
+<% end %>

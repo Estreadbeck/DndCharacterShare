@@ -4,18 +4,6 @@ class CharactersController < ApplicationController
     @character = Character.all
   end
 
-  def sort
-    params[:order].each do |key, value|
-      Character.friendly.find(value[:id]).update(position: value[:position])
-    end
-
-    render body: nil
-  end
-
-# def angular
-#  @angular_portfolio_items = Character.angular
-# end
-
   def new
   @character = Character.new
   
@@ -66,20 +54,21 @@ class CharactersController < ApplicationController
   end
 
   def toggle_status
-    if @character.private?
-      @character.public!
-    elsif @character.public?
-      @character.private!
+    if @character.personal?
+      @character.published!
+    elsif @character.published?
+      @character.personal!
     end
         
     redirect_to blogs_url, notice: 'Post status has been updated.'
   end
 
+
+  private
+
   def set_character
     @character = Character.friendly.find(params[:id])
   end
-
-  private
 
   def character_params
     params.require(:character).permit(:name,

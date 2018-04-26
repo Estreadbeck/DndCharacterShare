@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   end
 
   def public_characters
+    @character = Character.published
   end
 end
