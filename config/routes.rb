@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :character_classes, only: [:index, :show]
   resources :races, only: [:index, :show]
 
-  resources :characters
+  resources :characters do
+    member do
+      get :toggle_status
+    end
+  end
+  
   get 'about', to: 'pages#about'
   get 'public-characters', to: 'pages#public_characters'
   get 'character/:id', to: 'characters#show', as: 'character_show'

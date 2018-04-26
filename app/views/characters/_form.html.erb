@@ -42,6 +42,13 @@
     Upload a character image: <%= c.file_field :character_image %>
   </div>
 
+  <div class="form-group">
+    <%= f.radio_button :status, 'private' %>
+    <%= f.label :status, 'Private' %>
+    <%= f.radio_button :status, 'public' %>
+    <%= f.label :status, 'Private' %>
+  </div>
+
   <div>
     <%= c.submit 'Save Character' %>
   </div>

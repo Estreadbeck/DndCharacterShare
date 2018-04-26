@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:edit, :update, :destroy, :show]
+  before_action :set_character, only: [:edit, :update, :destroy, :show, :toggle_status]
   def index
     @character = Character.all
   end
@@ -65,6 +65,16 @@ class CharactersController < ApplicationController
     end
   end
 
+  def toggle_status
+    if @character.private?
+      @character.public!
+    elsif @character.public?
+      @character.private!
+    end
+        
+    redirect_to blogs_url, notice: 'Post status has been updated.'
+  end
+
   def set_character
     @character = Character.friendly.find(params[:id])
   end
@@ -77,6 +87,7 @@ class CharactersController < ApplicationController
                                       :character_class_id,
                                       :level,
                                       :backstory,
+                                      :status,
                                       :character_image
                                       )
   end
