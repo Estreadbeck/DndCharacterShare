@@ -11,6 +11,8 @@
   <body>
     <%= render 'shared/nav' %>
     <hr>
-    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+      <%= yield %>
   </body>
 </html>

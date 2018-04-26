@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :character_classes, only: [:index, :show]
   resources :races, only: [:index, :show]
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   end
   
   get 'about', to: 'pages#about'
+  get 'public-characters', to: 'pages#public_characters'
   get 'character/:id', to: 'characters#show', as: 'character_show'
 
   root to: 'pages#home'
