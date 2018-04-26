@@ -1,0 +1,19 @@
+<%= form_for(@character_class) do |c| %>
+
+  <div>
+    <%= c.label :title %>
+    <%= c.text_field :title %>
+  </div>
+
+  <div>
+    <%= c.label :description %>
+    <%= c.text_field :description %>
+  </div>
+
+  <div>
+    <%= c.submit 'Save Class' %>
+  </div>
+
+<% end %>
+
+<div><%= link_to 'Back', admin_dashboard_path %></div>

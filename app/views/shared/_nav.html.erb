@@ -1,10 +1,14 @@
 <%= link_to 'Home', root_path %>
 <%= link_to 'About', about_path %>
 <%= link_to 'Public Characters', public_characters_path %>
-<%= link_to 'My Characters', characters_path %>
-<% if current_user %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
+<% if current_user.is_a?(GuestUser) %>
   <%= link_to "Register", new_user_registration_path %>
   <%= link_to "Login", new_user_session_path %>
+<% elsif current_user %>
+  <%= link_to 'My Characters', characters_path %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <% end %>
+
+<% if logged_in?(:site_admin) %>
+  <%= link_to "Admin Dashboard", admin_dashboard_path %>
+  <% end %>

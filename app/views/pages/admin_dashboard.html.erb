@@ -1,0 +1,26 @@
+<h1>Admin Dashboard</h1>
+
+<% @character.each do |character| %>
+
+  <div><%= link_to "#{character.name}, Created by: #{character.user.name}", character_show_path(character) %></div>
+<% end %>
+
+<p><%= link_to 'New Character', new_character_path %></p>
+
+<hr>
+
+<% @character_class.each do |c| %>
+
+  <div><%= link_to c.title, character_class_path(c) %></div>
+<% end %>
+
+<p><%= link_to 'New Class', new_character_class_path %></p>
+
+<hr>
+
+<% @race.each do |r| %>
+
+  <div><%= link_to r.race_name, race_path(r) %></div>
+<% end %>
+
+<p><%= link_to 'New Race', new_race_path %></p>

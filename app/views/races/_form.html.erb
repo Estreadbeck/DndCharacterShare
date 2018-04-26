@@ -1,0 +1,19 @@
+<%= form_for(@race) do |r| %>
+
+  <div>
+    <%= r.label :race_name %>
+    <%= r.text_field :race_name %>
+  </div>
+
+  <div>
+    <%= r.label :race_description %>
+    <%= r.text_field :race_description %>
+  </div>
+
+  <div>
+    <%= r.submit 'Save Race' %>
+  </div>
+
+<% end %>
+
+<div><%= link_to 'Back', admin_dashboard_path %></div>

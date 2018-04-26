@@ -12,7 +12,10 @@
 <div><%= image_tag character_img(@character.character_image), width: '350px', alt: 'character image' %></div>
 
 <div>
-  <% if current_user.id == @character.user_id %>
+  <% if logged_in?(:site_admin) %>
+    <div><%= link_to "Edit Character", edit_character_path(@character) %></div>
+    <div><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  <% elsif current_user.id == @character.user_id %>
     <div><%= link_to "Edit Character", edit_character_path(@character) %></div>
     <div><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></div>
   <% end %>

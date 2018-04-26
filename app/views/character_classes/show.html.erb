@@ -1,0 +1,10 @@
+<div>Class: <%= @character_class.title %></div>
+<div>Description: <%= @character_class.description %></div>
+
+<div>
+  <% if logged_in?(:site_admin) %>
+    <div><%= link_to "Edit Class", edit_character_class_path(@character_class) %></div>
+    <div><%= link_to 'Delete Class', @character_class, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <% end %>
+  <div><%= link_to 'Back', admin_dashboard_path %></div>
+</div>
