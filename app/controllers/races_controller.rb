@@ -7,7 +7,7 @@ class RacesController < ApplicationController
   end
 
   def show
-    @race = Race.find(params[:id])
+    @race = Race.friendly.find(params[:id])
   end
 
   def new
@@ -48,7 +48,7 @@ class RacesController < ApplicationController
   end
 
   def show
-    @race = Race.find(params[:id])
+    @race = Race.friendly.find(params[:id])
   end
 
   def destroy
@@ -62,7 +62,7 @@ class RacesController < ApplicationController
   private
 
   def set_race
-    @race = Race.find(params[:id])
+    @race = Race.friendly.find(params[:id])
   end
 
   def race_params
