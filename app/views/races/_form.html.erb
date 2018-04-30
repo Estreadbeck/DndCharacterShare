@@ -1,4 +1,9 @@
 <%= form_for(@race) do |r| %>
+  <% if @race.errors.any? %>
+    <% @race.errors.full_messages.each do |error| %>
+      <%= js add_gritter(error, title: "Character Share", sticky: false ) %>
+      <% end %>
+    <% end %>
 
   <div>
     <%= r.label :race_name %>
