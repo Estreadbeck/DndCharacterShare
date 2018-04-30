@@ -1,6 +1,21 @@
-<% @character.each do |character| %>
-
-  <div><%= link_to character.name, character_show_path(character) %></div>
+<div class="album text-muted">
+  <div class="container">
+<p><h1>My Characters</h1></p>
+    <div class="row">
+    <% @character.each do |character| %>
+      <div class="col-md-4">
+        <div class="card">
+          <%= image_tag character.character_image, width: '350px', class: 'card-img' %>
+          <p class="card-text">
+            <span><%= link_to character.name, character_show_path(character) %></span> <%= character.race.race_name %> <%= character.character_class.title %> <%= character.level %>
+            <div class="data-meta">Created by: <%= character.user.name %></div>
+          </p>
+        </div>
+      </div>
 <% end %>
 
+      
+    </div>
 <p><%= link_to 'New Character', new_character_path %></p>
+  </div>
+</div>

@@ -1,7 +1,4 @@
-<h1>Pages#home</h1>
-
-<% if current_user %>
-  <p>Welcome <%= current_user.first_name %></p>
-<% else %>
-  <p>Welcome guest</p>
-<% end %>
+<div class="inner cover main-page">
+  <h1 class="cover-heading">Welcome <%= current_user.first_name %></h1>
+  <p class="lead">You can store your character data here! Just sign up!</p>
+</div>
