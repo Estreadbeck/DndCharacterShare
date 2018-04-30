@@ -1,14 +1,42 @@
-<%= link_to 'Home', root_path %>
-<%= link_to 'About', about_path %>
-<%= link_to 'Public Characters', public_characters_path %>
-<% if current_user.is_a?(GuestUser) %>
-  <%= link_to "Register", new_user_registration_path %>
-  <%= link_to "Login", new_user_session_path %>
-<% elsif current_user %>
-  <%= link_to 'My Characters', characters_path %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% end %>
-
-<% if logged_in?(:site_admin) %>
-  <%= link_to "Admin Dashboard", admin_dashboard_path %>
-  <% end %>
+  <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="<%= root_path %>">Character Share</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to 'Home', root_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'About', about_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Public Characters', public_characters_path, class: 'nav-link' %>
+            </li>
+            <% if current_user.is_a?(GuestUser) %>
+            <li class="nav-item">
+              <%= link_to "Register", new_user_registration_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: 'nav-link' %>
+            </li>
+            <% elsif current_user %>
+            <li class="nav-item">
+              <%= link_to 'My Characters', characters_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+            <% end %>
+            <% if logged_in?(:site_admin) %>
+            <li class="nav-item">
+              <%= link_to "Admin Dashboard", admin_dashboard_path, class: 'nav-link' %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>

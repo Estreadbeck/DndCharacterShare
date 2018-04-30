@@ -9,10 +9,15 @@
   </head>
 
   <body>
-    <%= render 'shared/nav' %>
-    <hr>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-      <%= yield %>
+    <div class="site-wrapper">
+      <div class="cover-container">
+        <div class="nav-header">
+          <%= render 'shared/nav' %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+        <%= render 'shared/alerts' %>
+        <%= render 'shared/footer' %>
   </body>
 </html>

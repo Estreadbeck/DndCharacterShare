@@ -16,9 +16,9 @@ module ApplicationHelper
   #   end
   # end
 
-  # def copyright_generator
-  #   StreadbeckViewTool::Renderer.copyright 'Ethan Streadbeck', 'All rights reserved'
-  # end
+  def copyright_generator
+    StreadbeckViewTool::Renderer.copyright 'Ethan Streadbeck', 'All rights reserved'
+  end
 
   # def nav_items
   #   [

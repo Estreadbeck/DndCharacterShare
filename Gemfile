@@ -69,3 +69,7 @@ gem 'jquery-rails'
 gem 'pry'
 
 gem 'petergate', '~> 1.8', '>= 1.8.1'
+
+gem 'streadbeck_view_tool', '~> 0.1.0'
+
+gem 'gritter', '~> 1.2'

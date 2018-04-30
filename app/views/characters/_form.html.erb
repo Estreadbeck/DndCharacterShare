@@ -1,4 +1,9 @@
 <%= form_for(@character) do |c| %>
+  <% if character.errors.any? %>
+    <% character.errors.full_messages.each do |error| %>
+      <%= js add_gritter(error, title: "Character Share", sticky: false ) %>
+      <% end %>
+    <% end %>
 
   <div>
     <%= c.label :name %>
