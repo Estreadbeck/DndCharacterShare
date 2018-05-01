@@ -27,6 +27,19 @@
       <br>
     <% end %>
   <% end %>
+</ul>
+
+  <h3>Racial Traits</h3>
+  <ul>
+  <% @character.race.traits.each do |trait| %>
+    <% if  @character.level >= trait.level %>
+      <li>
+        <%= trait.name %> Level: <%= trait.level %>, <%= trait.description %> 
+      </li>
+      <br>
+    <% end %>
+  <% end %>
+</ul>
 
 
 <div><%= image_tag character_img(@character.character_image), width: '350px', alt: 'character image' %></div>

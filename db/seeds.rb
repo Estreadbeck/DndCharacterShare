@@ -39,7 +39,8 @@ puts "created 3 classes"
 4.times do |race|
   Race.create!(
     race_name: "Sample Race #{race}",
-    race_description: "A sample character race"
+    race_description: "A sample character race",
+    traits_attributes: [{name: 'Sample Trait 1', description: 'This is a sample trait for testing purposes', level: 1}, {name: 'Sample Trait 2', description: 'This is a sample trait for testing purposes', level: 2}, {name: 'Sample Trait 3', description: 'This is a sample trait for testing purposes', level: 3}]
     )
 end
 puts 'created 4 races'

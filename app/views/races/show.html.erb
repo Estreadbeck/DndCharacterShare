@@ -1,5 +1,13 @@
 <div>Race: <%= @race.race_name %></div>
 <div>Description: <%= @race.race_description %></div>
+<h3>Traits:</h3>
+<ul>
+<% @race.traits.each do |t| %>
+  <li>
+    <%= t.name %>, <%= t.description %>, <%= t.level %>
+  </li>
+<% end %>
+  </ul>
 
 <div>
   <% if logged_in?(:site_admin) %>
