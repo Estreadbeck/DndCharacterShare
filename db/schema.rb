@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501194156) do
+ActiveRecord::Schema.define(version: 20180501195828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 20180501194156) do
     t.bigint "user_id"
     t.index ["slug"], name: "index_characters_on_slug", unique: true
     t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "level"
+    t.bigint "character_class_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_class_id"], name: "index_features_on_character_class_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -93,5 +103,6 @@ ActiveRecord::Schema.define(version: 20180501194156) do
   add_foreign_key "characters", "character_classes"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
+  add_foreign_key "features", "character_classes"
   add_foreign_key "stats", "characters"
 end

@@ -1,5 +1,13 @@
 <div>Class: <%= @character_class.title %></div>
 <div>Description: <%= @character_class.description %></div>
+<h3>Features:</h3>
+<ul>
+<% @character_class.features.each do |f| %>
+  <li>
+    <%= f.name %>, <%= f.description %>, <%= f.level %>
+  </li>
+<% end %>
+  </ul>
 
 <div>
   <% if logged_in?(:site_admin) %>

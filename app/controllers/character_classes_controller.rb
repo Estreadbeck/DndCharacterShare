@@ -67,7 +67,8 @@ class CharacterClassesController < ApplicationController
 
   def character_class_params
     params.require(:character_class).permit(:title,
-                                            :description                                      
+                                            :description,
+                                            features_attributes: [:name, :description, :level, :id, :_destroy]                                      
                                             )
   end
 end

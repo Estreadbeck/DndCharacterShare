@@ -30,7 +30,8 @@ puts "1 admin user created"
 3.times do |character_class|
   CharacterClass.create!(
     title: "Sample Class #{character_class}",
-    description: 'This is a sample class'
+    description: 'This is a sample class',
+    features_attributes: [{name: 'Sample Feature 1', description: 'This is a sample feature for testing purposes', level: 1}, {name: 'Sample Feature 2', description: 'This is a sample feature for testing purposes', level: 2}, {name: 'Sample Feature 3', description: 'This is a sample feature for testing purposes', level: 3}]
     )
 end
 puts "created 3 classes"

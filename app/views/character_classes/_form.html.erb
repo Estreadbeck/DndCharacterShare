@@ -15,6 +15,31 @@
     <%= c.text_field :description %>
   </div>
 
+  <h3>Features</h3>
+  <ul> 
+    <%= c.fields_for :features do |f| %>
+    <li>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+
+      <div>
+        <%= f.label :level %>
+        <%= f.number_field :level %>
+      </div>
+
+  </li>
+  <br>
+    <% end %>
+
+  </ul>
+
   <div>
     <%= c.submit 'Save Class' %>
   </div>
