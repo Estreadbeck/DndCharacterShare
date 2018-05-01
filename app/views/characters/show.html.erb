@@ -9,6 +9,13 @@
 <div>Race: <%= @character.race.race_name %></div>
 <div>Class: <%= @character.character_class.title %> Lvl: <%= @character.level %> <%= @character.character_class.description %> </div>
 <div>Backstory: <%= @character.backstory %></div>
+<ul>
+<% @character.stats.recent.each do |stat| %>
+  <li>
+    <%= stat.name %>, <%= stat.score %>, <%= stat.modifier %>
+  </li>
+<% end %>
+  </ul>
 <div><%= image_tag character_img(@character.character_image), width: '350px', alt: 'character image' %></div>
 
 <div>

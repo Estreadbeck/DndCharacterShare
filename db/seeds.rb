@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+stat_name_arr = %w(Strength Dexterity Constitution Intelligence Wisdom Charisma)
+
 2.times do |user|
     User.create!(
         email: "test#{user}@test.com",
@@ -41,6 +43,7 @@ puts "created 3 classes"
 end
 puts 'created 4 races'
 
+
 5.times do |character|
   Character.create!(
     name: "Character #{character}",
@@ -49,7 +52,8 @@ puts 'created 4 races'
     character_image: "http://via.placeholder.com/350x350",
     backstory: "my sob story",
     character_class_id: CharacterClass.last.id,
-    user_id: User.last.id
+    user_id: User.last.id,
+    stats_attributes: [ {name: 'Strength', score: 15, modifier: '+2'}, {name: 'Dexterity', score: 15, modifier: '+2'}, {name: 'Constitution', score: 15, modifier: '+2'}, {name: 'Intelligence', score: 15, modifier: '+2'}, {name: 'Wisdom', score: 15, modifier: '+2'}, {name: 'Charisma', score: 15, modifier: '+2'}]
     )
 end
 puts "created 5 characters for user 1"
@@ -62,9 +66,13 @@ puts "created 5 characters for user 1"
     character_image: "http://via.placeholder.com/350x350",
     backstory: "my sob story",
     character_class_id: CharacterClass.first.id,
-    user_id: User.first.id
+    user_id: User.first.id,
+    stats_attributes: [ {name: 'Strength', score: 15, modifier: '+2'}, {name: 'Dexterity', score: 15, modifier: '+2'}, {name: 'Constitution', score: 15, modifier: '+2'}, {name: 'Intelligence', score: 15, modifier: '+2'}, {name: 'Wisdom', score: 15, modifier: '+2'}, {name: 'Charisma', score: 15, modifier: '+2'}]
     )
 end
 puts "created 5 characters user 2"
+
+
+
 
 

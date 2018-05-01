@@ -4,12 +4,13 @@ class CharactersController < ApplicationController
     if current_user.is_a?(GuestUser)
       redirect_to root_path, notice: "You need to be logged in to access this page"
     elsif current_user
-      @character = Character.characters_by(current_user)
+      @character = Character.recent.characters_by(current_user)
     end
   end
 
   def new
   @character = Character.new
+  6.times { @character.stats.build }
   
   end
 
@@ -47,7 +48,7 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @character = Character.friendly.find(params[:id])
+    @character = Character.recent.friendly.find(params[:id])
   end
 
   def destroy
@@ -84,7 +85,8 @@ class CharactersController < ApplicationController
                                       :backstory,
                                       :status,
                                       :user_id,
-                                      :character_image
+                                      :character_image,
+                                      stats_attributes: [:stat_name_id, :score, :modifier, :id, :_destroy, :stat_names]
                                       )
   end
 

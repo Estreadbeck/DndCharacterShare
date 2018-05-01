@@ -7,7 +7,7 @@ class CharacterClassesController < ApplicationController
   end
 
   def show
-    @character_class = CharacterClass.find(params[:id])
+    @character_class = CharacterClass.friendly.find(params[:id])
   end
 
   def new
@@ -48,7 +48,7 @@ class CharacterClassesController < ApplicationController
   end
 
   def show
-    @character_class = CharacterClass.find(params[:id])
+    @character_class = CharacterClass.friendly.find(params[:id])
   end
 
   def destroy
@@ -62,7 +62,7 @@ class CharacterClassesController < ApplicationController
   private
 
   def set_character_class
-    @character_class = CharacterClass.find(params[:id])
+    @character_class = CharacterClass.friendly.find(params[:id])
   end
 
   def character_class_params

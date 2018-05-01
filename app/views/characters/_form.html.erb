@@ -37,7 +37,30 @@
     <%= c.label :level %>
     <%= c.number_field :level %>
   </div>
+  <h3>Stats</h3>
+  <ul> 
+    <%= c.fields_for :stats do |s| %>
+    <li>
+      <div>
+        <%= s.label :name %>
+        <%= s.text_field :name %>
+          
+      </div>
 
+      <div>
+        <%= s.label :score %>
+        <%= s.number_field :score %>
+      </div>
+
+      <div>
+        <%= s.label :modifier %>
+        <%= s.text_field :modifier %>
+      </div>
+  </li>
+  <br>
+    <% end %>
+
+  </ul>
   <div>
     <%= c.label :backstory %>
     <%= c.text_field :backstory %>
