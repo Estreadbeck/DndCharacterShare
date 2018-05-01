@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def public_characters
-    @character = Character.published
+    @character = Character.published.recent
   end
 
   def admin_dashboard
