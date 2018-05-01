@@ -7,7 +7,7 @@
         <div class="card">
           <%= image_tag character.character_image, width: '350px', class: 'card-img' %>
           <p class="card-text">
-            <span><%= link_to character.name, character_show_path(character) %></span> <%= character.race.race_name %> <%= character.character_class.title %> <%= character.level %>
+            <span><%= link_to character.name, character_show_path(character) %></span>, <%= character.race.race_name %>, <%= character.character_class.title %> Level: <%= character.level %>
             <div class="data-meta">Created at: <%= character.created_at %> by: <%= character.user.name %></div>
           </p>
         </div>
