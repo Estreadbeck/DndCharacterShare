@@ -16,6 +16,32 @@
   </li>
 <% end %>
   </ul>
+
+  <h3>Class Features</h3>
+  <ul>
+  <% @character.character_class.features.each do |feature| %>
+    <% if  @character.level >= feature.level %>
+      <li>
+        <%= feature.name %> Level: <%= feature.level %>, <%= feature.description %> 
+      </li>
+      <br>
+    <% end %>
+  <% end %>
+</ul>
+
+  <h3>Racial Traits</h3>
+  <ul>
+  <% @character.race.traits.each do |trait| %>
+    <% if  @character.level >= trait.level %>
+      <li>
+        <%= trait.name %> Level: <%= trait.level %>, <%= trait.description %> 
+      </li>
+      <br>
+    <% end %>
+  <% end %>
+</ul>
+
+
 <div><%= image_tag character_img(@character.character_image), width: '350px', alt: 'character image' %></div>
 
 <div>

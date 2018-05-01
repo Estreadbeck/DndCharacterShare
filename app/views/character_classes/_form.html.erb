@@ -15,6 +15,15 @@
     <%= c.text_field :description %>
   </div>
 
+  <h3>Features</h3> 
+    <%= c.fields_for :features do |f| %>
+      <%= render 'feature_fields', f: f %>
+    <% end %>
+
+     <div>
+        <%= link_to_add_association 'Add Feature', c, :features %>
+      </div>
+
   <div>
     <%= c.submit 'Save Class' %>
   </div>

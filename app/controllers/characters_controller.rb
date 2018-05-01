@@ -86,7 +86,7 @@ class CharactersController < ApplicationController
                                       :status,
                                       :user_id,
                                       :character_image,
-                                      stats_attributes: [:stat_name_id, :score, :modifier, :id, :_destroy, :stat_names]
+                                      stats_attributes: [:name, :score, :modifier, :id, :_destroy]
                                       )
   end
 

@@ -67,7 +67,8 @@ class RacesController < ApplicationController
 
   def race_params
     params.require(:race).permit(:race_name,
-                                :race_description                                      
-                                            )
+                                :race_description,
+                                traits_attributes: [:id, :name, :description, :level, :_destroy]                                      
+                                )
   end
 end

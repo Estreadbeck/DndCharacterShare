@@ -15,6 +15,15 @@
     <%= r.text_field :race_description %>
   </div>
 
+  <h3>Traits</h3> 
+    <%= r.fields_for :traits do |trait| %>
+      <%= render 'trait_fields', f: trait %>
+    <% end %>
+
+     <div>
+        <%= link_to_add_association 'Add Trait', r, :traits %>
+      </div>
+
   <div>
     <%= r.submit 'Save Race' %>
   </div>
