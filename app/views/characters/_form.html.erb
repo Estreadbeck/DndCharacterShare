@@ -4,83 +4,199 @@
       <%= js add_gritter(error, title: "Character Share", sticky: false ) %>
       <% end %>
     <% end %>
+    <div class="row">
+      <div class="col-md-5">
 
-  <div>
-    <%= c.label :name %>
-    <%= c.text_field :name %>
+        <div class="form-label-group">
+          <%= c.label :name %>
+          <%= c.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= c.label :race %>
+          <%= c.collection_select(:race_id, Race.all, :id, :race_name,
+                                  {
+                                    include_blank: false,
+
+                                  },
+                                  class: 'form-control'
+                                  ) %> 
+        </div>
+
+        <div class="form-group">
+          <%= c.label 'Class' %>
+          <%= c.collection_select(:character_class_id, CharacterClass.all, :id, :title,
+                                  {
+                                    include_blank: false,
+
+                                  },
+                                  class: 'form-control'
+                                  ) %>   
+
+        </div>
+
+        <div class="form-group">
+          <%= c.radio_button :status, 'personal' %>
+          <%= c.label :status, 'Personal' %>
+          <%= c.radio_button :status, 'published' %>
+          <%= c.label :status, 'Published' %>
+        </div>
+
+        
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-label-group">
+          <%= c.label :level %>
+          <%= c.number_field :level, class: 'form-control small-box' %>
+        </div>
+
+        <div class="form-label-group">
+          <%= c.label :armor_class %>
+          <%= c.number_field :armor_class, class: 'form-control small-box' %>
+        </div>
+        <div class="form-label-group">
+          <%= c.label :initiative %>
+          <%= c.text_field :initiative, class: 'form-control small-box' %>
+        </div>
+        <div class="form-label-group">
+          <%= c.label :speed %>
+          <%= c.number_field :speed, class: 'form-control small-box' %>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="btn btn-primary">
+            Upload a character image <%= c.file_field :character_image, style: 'display:none;' %>     
+          </label>
+        </div>
+
+        <div class="form-group">
+          <%= image_tag @character.character_image, width: '200px' %>
+        </div>
+    </div>
   </div>
 
-  <div>
-    <%= c.label :race %>
-    <%= c.collection_select(:race_id, Race.all, :id, :race_name,
-                            {
-                              include_blank: false,
+  <div class="row">
 
-                            },
-                            class: 'form-control'
-                            ) %> 
-  </div>
+      <h3>Stats</h3>
+    </div>
+    <div class="row stat">
 
+      <%= c.fields_for :stats do |s| %>
+        <div class="card stat-item">
+          <div class="form-group">
+            <%= s.label :name %>
+            <%= s.text_field :name, class: 'form-control' %>
+              
+          </div>
+
+          <div class="form-group">
+            <%= s.label :score %>
+            <%= s.number_field :score, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= s.label :modifier %>
+            <%= s.text_field :modifier, class: 'form-control' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= c.label :equipment %>
+          <%= c.text_area :equipment, class: 'form-control', rows: 8 %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= c.label :inventory %>
+          <%= c.text_area :inventory, class: 'form-control', rows: 8 %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
   <div class="form-group">
-    <%= c.label :character_class_id %>
-    <%= c.collection_select(:character_class_id, CharacterClass.all, :id, :title,
-                            {
-                              include_blank: false,
-
-                            },
-                            class: 'form-control'
-                            ) %>   
-
-  </div>
-
-  <div>
-    <%= c.label :level %>
-    <%= c.number_field :level %>
-  </div>
-  <h3>Stats</h3>
-  <ul> 
-    <%= c.fields_for :stats do |s| %>
-    <li>
-      <div>
-        <%= s.label :name %>
-        <%= s.text_field :name %>
-          
-      </div>
-
-      <div>
-        <%= s.label :score %>
-        <%= s.number_field :score %>
-      </div>
-
-      <div>
-        <%= s.label :modifier %>
-        <%= s.text_field :modifier %>
-      </div>
-  </li>
-  <br>
-    <% end %>
-
-  </ul>
-  <div>
     <%= c.label :backstory %>
-    <%= c.text_field :backstory %>
+    <%= c.text_area :backstory, class: 'form-control', rows: 5 %>
+  </div> 
+</div>
+  <div class="col-md-6">
+  <div class="form-group">
+    <%= c.label :notes %>
+    <%= c.text_area :notes, class: 'form-control', rows: 5 %>
   </div>
+</div>
+</div>
 
-  <div>
-    Upload a character image: <%= c.file_field :character_image, display: true %>
+  <div class="row">
+    <div class='col-md-6'>
+  <div class="form-group">
+    <%= c.label :age %> 
+    <%= c.number_field :age, class: 'form-control' %>
+  </div> 
+  <div class="form-group">
+    <%= c.label :height %>
+    <%= c.text_field :height, class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= c.label :weight %>
+    <%= c.text_field :weight, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= c.label :eyes %>
+    <%= c.text_field :eyes, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= c.label :skin %>
+    <%= c.text_field :skin, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= c.label :hair %>
+    <%= c.text_field :hair, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= c.label :allies %>
+    <%= c.text_area :allies, class: 'form-control', rows: 6 %>
+  </div>
+</div>
+
+
+    <div class='col-md-6'>
+  <div class="form-group">
+    <%= c.label :personality %>
+    <%= c.text_area :personality, class: 'form-control', rows: 5 %>
+  </div>
+  <div class="form-group">
+    <%= c.label :ideals %>
+    <%= c.text_area :ideals, class: 'form-control', rows: 5 %>
+  </div>
+  <div class="form-group">
+    <%= c.label :bonds %>
+    <%= c.text_area :bonds, class: 'form-control', rows: 5 %>
+  </div>
+  <div class="form-group">
+    <%= c.label :flaws %>
+    <%= c.text_area :flaws, class: 'form-control', rows: 5 %>
+  </div>
+</div>
+</div>
+
+  
+
+  
 
   <div class="form-group">
-    <%= c.radio_button :status, 'personal' %>
-    <%= c.label :status, 'Personal' %>
-    <%= c.radio_button :status, 'published' %>
-    <%= c.label :status, 'Published' %>
-  </div>
-
-  <div>
-    <%= c.submit 'Save Character' %>
+    <%= c.submit 'Save Character', class: 'btn btn-primary btn-block' %>
   </div>
 
 <% end %>
 
-<div><%= link_to 'Back', characters_path %></div>
+<div><%= link_to 'Back', characters_path, class: 'btn btn-warning btn-block' %></div>

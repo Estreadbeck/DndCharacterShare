@@ -54,6 +54,9 @@ puts 'created 4 races'
     character_image: "http://via.placeholder.com/350x350",
     backstory: "my sob story",
     character_class_id: CharacterClass.last.id,
+    initiative: '+2',
+    armor_class: '13',
+    speed: 30,
     user_id: User.last.id,
     stats_attributes: [ {name: 'Strength', score: 15, modifier: '+2'}, {name: 'Dexterity', score: 15, modifier: '+2'}, {name: 'Constitution', score: 15, modifier: '+2'}, {name: 'Intelligence', score: 15, modifier: '+2'}, {name: 'Wisdom', score: 15, modifier: '+2'}, {name: 'Charisma', score: 15, modifier: '+2'}]
     )
@@ -68,6 +71,9 @@ puts "created 5 characters for user 1"
     character_image: "http://via.placeholder.com/350x350",
     backstory: "my sob story",
     character_class_id: CharacterClass.first.id,
+    initiative: '+2',
+    armor_class: '13',
+    speed: 30,
     user_id: User.first.id,
     stats_attributes: [ {name: 'Strength', score: 15, modifier: '+2'}, {name: 'Dexterity', score: 15, modifier: '+2'}, {name: 'Constitution', score: 15, modifier: '+2'}, {name: 'Intelligence', score: 15, modifier: '+2'}, {name: 'Wisdom', score: 15, modifier: '+2'}, {name: 'Charisma', score: 15, modifier: '+2'}]
     )

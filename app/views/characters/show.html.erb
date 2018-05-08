@@ -1,22 +1,36 @@
-
+<div class="container show-container">
+  <div class="card">
 
 <% if @character.personal? %>
   <h3>This character is Private</h3>
 <% elsif @character.published? %>
   <h3>This character is Public</h3>
 <% end %>
-<div>Name: <%= @character.name %></div>
-<div>Race: <%= @character.race.race_name %></div>
-<div>Class: <%= @character.character_class.title %> Lvl: <%= @character.level %> <%= @character.character_class.description %> </div>
-<div>Backstory: <%= @character.backstory %></div>
-<ul>
-<% @character.stats.recent.each do |stat| %>
-  <li>
-    <%= stat.name %>, <%= stat.score %>, <%= stat.modifier %>
-  </li>
-<% end %>
-  </ul>
+<h2><%= @character.name %></h2>
+<div class="row">
+  <div class="col-md-3">
+<h5><a tabindex="0" class="pop-link" data-placement="right" role="label" data-toggle="popover" data-trigger="focus" title="<%= @character.race.race_name %>" data-content="<%= @character.race.race_description %>"><%= @character.race.race_name %></a></h5>
+<h5><a tabindex="0" class="pop-link" data-placement="right" role="lable" data-toggle="popover" data-trigger="focus" title="<%= @character.character_class.title %>" data-content="<%= @character.character_class.description %>"><%= @character.character_class.title %>, Level <%= @character.level %></a></h5>
+<div class="stat-box card"><div>AC</div><div><%= @character.armor_class %></div></div>
+<div class="stat-box card"><div>Initiative</div><div><%= @character.initiative %></div></div>
+<div class="stat-box card"><div>Speed</div><div><%= @character.speed %></div></div>
 
+</div>
+<div class="col-md-5">
+<% @character.stats.recent.each do |stat| %>
+<div class="stat-block card stat-box">
+    <div><%= stat.name %></div> <div><%= stat.score %></div> <div><%= stat.modifier %></div>
+  </div>
+<% end %>
+</div>
+
+<div class="col-md-4 char-img">
+  <div><%= image_tag character_img(@character.character_image), width: '100%', style: 'margin-right:20px;', alt: 'character image' %></div>
+</div>
+</div>
+
+
+    
   <h3>Class Features</h3>
   <ul>
   <% @character.character_class.features.each do |feature| %>
@@ -42,7 +56,7 @@
 </ul>
 
 
-<div><%= image_tag character_img(@character.character_image), width: '350px', alt: 'character image' %></div>
+
 
 <div>
   <% if logged_in?(:site_admin) %>
@@ -53,4 +67,7 @@
     <div><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></div>
   <% end %>
   <div><%= link_to 'Back', characters_path %></div>
+</div>
+
+</div>
 </div>

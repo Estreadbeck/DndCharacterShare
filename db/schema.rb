@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501213904) do
+ActiveRecord::Schema.define(version: 20180501221908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(version: 20180501213904) do
     t.bigint "race_id"
     t.integer "status", default: 0
     t.bigint "user_id"
+    t.text "equipment"
+    t.text "inventory"
+    t.integer "armor_class"
+    t.string "initiative"
+    t.integer "speed"
+    t.text "notes"
+    t.text "personality"
+    t.text "ideals"
+    t.text "bonds"
+    t.text "flaws"
+    t.integer "age"
+    t.string "height"
+    t.string "weight"
+    t.string "eyes"
+    t.string "skin"
+    t.string "hair"
+    t.text "allies"
     t.index ["slug"], name: "index_characters_on_slug", unique: true
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
