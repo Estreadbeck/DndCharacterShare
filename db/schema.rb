@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501221908) do
+ActiveRecord::Schema.define(version: 20180514204308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180501221908) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.text "character_image"
-    t.text "backstory"
+    t.text "backstory", default: "(please input data)"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "level", default: 1
@@ -36,23 +36,23 @@ ActiveRecord::Schema.define(version: 20180501221908) do
     t.bigint "race_id"
     t.integer "status", default: 0
     t.bigint "user_id"
-    t.text "equipment"
-    t.text "inventory"
+    t.text "equipment", default: "(please input data)"
+    t.text "inventory", default: "(please input data)"
     t.integer "armor_class"
     t.string "initiative"
     t.integer "speed"
-    t.text "notes"
-    t.text "personality"
-    t.text "ideals"
-    t.text "bonds"
-    t.text "flaws"
+    t.text "notes", default: "(please input data)"
+    t.text "personality", default: "(please input data)"
+    t.text "ideals", default: "(please input data)"
+    t.text "bonds", default: "(please input data)"
+    t.text "flaws", default: "(please input data)"
     t.integer "age"
     t.string "height"
     t.string "weight"
     t.string "eyes"
     t.string "skin"
     t.string "hair"
-    t.text "allies"
+    t.text "allies", default: "(please input data)"
     t.index ["slug"], name: "index_characters_on_slug", unique: true
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
@@ -101,7 +101,6 @@ ActiveRecord::Schema.define(version: 20180501221908) do
   create_table "traits", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "level"
     t.bigint "race_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

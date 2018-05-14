@@ -9,15 +9,16 @@
   </head>
 
   <body>
-    <div class="site-wrapper">
-      <div class="cover-container">
         <div class="nav-header">
           <%= render 'shared/nav' %>
         </div>
+    <div class="site-wrapper">
+      <div class="cover-container">
+        <%= image_tag( 'old-parchment.jpg', id: 'background') %>
         <%= yield %>
-      </div>
-    </div>
         <%= render 'shared/alerts' %>
+      </div>
         <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

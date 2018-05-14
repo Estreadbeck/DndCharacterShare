@@ -31,7 +31,7 @@ puts "1 admin user created"
   CharacterClass.create!(
     title: "Sample Class #{character_class}",
     description: 'This is a sample class',
-    features_attributes: [{name: 'Sample Feature 1', description: 'This is a sample feature for testing purposes', level: 1}, {name: 'Sample Feature 2', description: 'This is a sample feature for testing purposes', level: 2}, {name: 'Sample Feature 3', description: 'This is a sample feature for testing purposes', level: 3}]
+    features_attributes: [{name: 'Sample Feature 1', description: 'This is a sample feature for testing purposes', level: 1}, {name: 'Sample Feature 2', description: 'This is a sample feature for testing purposes', level: 2}, {name: 'Sample Feature 3', description: 'This is a sample feature for testing purposes', level: 3}, {name: 'Sample Feature 4', description: 'This is a sample feature for testing purposes', level: 4}, {name: 'Sample Feature 5', description: 'This is a sample feature for testing purposes', level: 5}, {name: 'Sample Feature 6', description: 'This is a sample feature for testing purposes', level: 6}, {name: 'Sample Feature 7', description: 'This is a sample feature for testing purposes', level: 7}, {name: 'Sample Feature 8', description: 'This is a sample feature for testing purposes', level: 8}, {name: 'Sample Feature 9', description: 'This is a sample feature for testing purposes', level: 9}, {name: 'Sample Feature 10', description: 'This is a sample feature for testing purposes', level: 10}]
     )
 end
 puts "created 3 classes"
@@ -40,7 +40,7 @@ puts "created 3 classes"
   Race.create!(
     race_name: "Sample Race #{race}",
     race_description: "A sample character race",
-    traits_attributes: [{name: 'Sample Trait 1', description: 'This is a sample trait for testing purposes', level: 1}, {name: 'Sample Trait 2', description: 'This is a sample trait for testing purposes', level: 2}, {name: 'Sample Trait 3', description: 'This is a sample trait for testing purposes', level: 3}]
+    traits_attributes: [{name: 'Sample Trait 1', description: 'This is a sample trait for testing purposes'}, {name: 'Sample Trait 2', description: 'This is a sample trait for testing purposes'}, {name: 'Sample Trait 3', description: 'This is a sample trait for testing purposes'}]
     )
 end
 puts 'created 4 races'

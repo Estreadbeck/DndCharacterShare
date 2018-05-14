@@ -5,29 +5,31 @@
       <% end %>
     <% end %>
 
-  <div>
+  <div class="form-group">
     <%= c.label :title %>
-    <%= c.text_field :title %>
+    <%= c.text_field :title, class: 'form-control', width: '50%' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= c.label :description %>
-    <%= c.text_field :description %>
+    <%= c.text_area :description, class: 'form-control', rows: 5, width: '50%' %>
   </div>
 
+  <div class="form-group">
   <h3>Features</h3> 
     <%= c.fields_for :features do |f| %>
       <%= render 'feature_fields', f: f %>
     <% end %>
 
      <div>
-        <%= link_to_add_association 'Add Feature', c, :features %>
+        <%= link_to_add_association 'Add Feature', c, :features, class: 'btn btn-md btn-secondary' %>
       </div>
+    </div>
 
-  <div>
-    <%= c.submit 'Save Class' %>
+  <div class="form-group">
+    <%= c.submit 'Save Class', class: 'btn btn-primary btn-block' %>
   </div>
 
 <% end %>
 
-<div><%= link_to 'Back', admin_dashboard_path %></div>
+<div><%= link_to 'Back', admin_dashboard_path, class: 'btn btn-warning btn-block' %></div>

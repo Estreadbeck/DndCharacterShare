@@ -25,12 +25,13 @@
 </div>
 
 <div class="col-md-4 char-img">
-  <div><%= image_tag character_img(@character.character_image), width: '100%', style: 'margin-right:20px;', alt: 'character image' %></div>
+  <div><%= image_tag character_img(@character.character_image), width: '100%', style: 'margin-right:20px;border-radius:4px;', alt: 'character image' %></div>
 </div>
 </div>
 
 
-    
+    <div class="row trait-row">
+      <div class="class-item">
   <h3>Class Features</h3>
   <ul>
   <% @character.character_class.features.each do |feature| %>
@@ -42,32 +43,123 @@
     <% end %>
   <% end %>
 </ul>
-
+</div>
+<div class="class-item">
   <h3>Racial Traits</h3>
   <ul>
   <% @character.race.traits.each do |trait| %>
-    <% if  @character.level >= trait.level %>
       <li>
-        <%= trait.name %> Level: <%= trait.level %>, <%= trait.description %> 
+        <%= trait.name %>: <%= trait.description %> 
       </li>
       <br>
-    <% end %>
   <% end %>
 </ul>
-
-
-
-
-<div>
-  <% if logged_in?(:site_admin) %>
-    <div><%= link_to "Edit Character", edit_character_path(@character) %></div>
-    <div><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-  <% elsif current_user.id == @character.user_id %>
-    <div><%= link_to "Edit Character", edit_character_path(@character) %></div>
-    <div><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-  <% end %>
-  <div><%= link_to 'Back', characters_path %></div>
 </div>
+</div>
+
+<div class="row">
+  <div class="col-sm text-field">
+    <h4>Inventory</h4>
+    <%= markdown @character.inventory %>
+  </div>
+
+  <div class="col-sm text-field">
+    <h4>Equipment</h4>
+    <%= markdown @character.equipment %>
+  </div>
+
+  <div class="col-sm text-field">
+    <h4>Notes</h4>
+    <%= markdown @character.notes %>
+  </div>
+  
+</div>
+
+<hr>
+
+<h3>Secondary Details</h3>
+<br>
+
+<div class="row align-items-center">
+  <div class="col-sm text-field-sm">
+    <h5>Personality</h5>
+    <%= markdown @character.personality %>
+  </div>
+  <div class="col-sm text-field-sm">
+    <h5>Ideals</h5>
+    <%= markdown @character.ideals %>
+  </div>
+  <div class="col-sm text-field-sm">
+    <h5>Bonds</h5>
+    <%= markdown @character.bonds %>
+  </div>
+  <div class="col-sm text-field-sm">
+    <h5>Flaws</h5>
+    <%= markdown @character.flaws %>
+  </div>
+
+</div>
+
+<div class="row justify-content-md-center">
+
+  <div class="col-md-auto">
+
+    <div class"col-sm-auto>
+
+      <div class="stat-box card">
+        Age: <%= @character.age %>
+      </div>
+      <div class="stat-box card">
+        Height: <%= @character.height %>
+      </div>
+      <div class="stat-box card">
+        Weight: <%= @character.weight %> lbs
+      </div>
+    </div>
+
+    <div class"col-sm-auto>
+      <div class="stat-box card">
+        Skin: <%= @character.skin %>
+      </div>
+      <div class="stat-box card">
+        Eyes: <%= @character.eyes %>
+      </div>
+      <div class="stat-box card">
+        Hair: <%= @character.hair %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="row">
+    <div class="text-field-sm">
+      <h5>Backstory</h5>
+      <%= @character.backstory %>
+    </div>
+  </div>
+    <div class="row">
+    <div class="text-field-sm">
+      <h5>Allies, Factions, and Organizations</h5>
+      <%= @character.allies %>
+    </div>
+  </div>
+  </div>
+</div>
+<hr>
+  
+
+<div class="row center-row">
+  <% if logged_in?(:site_admin) %>
+    <div class="button-item"><%= link_to "Edit Character", edit_character_path(@character), class: 'btn btn-primary btn-lg' %></div>
+    <div class="button-item"><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary btn-lg' %></div>
+  <% elsif current_user.id == @character.user_id %>
+    <div class="button-item"><%= link_to "Edit Character", edit_character_path(@character), class: 'btn btn-primary btn-lg' %></div>
+    <div class="button-item"><%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary btn-lg' %></div>
+  <% end %>
+  <div class="button-item"><%= link_to 'Back', characters_path, class: 'btn btn-warning btn-lg' %></div>
+</div>
+
+
 
 </div>
 </div>
