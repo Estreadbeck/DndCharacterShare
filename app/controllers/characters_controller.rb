@@ -89,6 +89,7 @@ class CharactersController < ApplicationController
                                       :inventory,
                                       :armor_class,
                                       :initiative,
+                                      :proficiency,
                                       :speed,
                                       :notes,
                                       :personality,

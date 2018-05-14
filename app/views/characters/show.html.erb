@@ -11,15 +11,22 @@
   <div class="col-md-3">
 <h5><a tabindex="0" class="pop-link" data-placement="right" role="label" data-toggle="popover" data-trigger="focus" title="<%= @character.race.race_name %>" data-content="<%= @character.race.race_description %>"><%= @character.race.race_name %></a></h5>
 <h5><a tabindex="0" class="pop-link" data-placement="right" role="lable" data-toggle="popover" data-trigger="focus" title="<%= @character.character_class.title %>" data-content="<%= @character.character_class.description %>"><%= @character.character_class.title %>, Level <%= @character.level %></a></h5>
-<div class="stat-box card"><div>AC</div><div><%= @character.armor_class %></div></div>
-<div class="stat-box card"><div>Initiative</div><div><%= @character.initiative %></div></div>
-<div class="stat-box card"><div>Speed</div><div><%= @character.speed %></div></div>
+
+<div class="row">
+<div class="stat-box card col"><div><b>AC</b></div><div><%= @character.armor_class %></div></div>
+<div class="stat-box card col"><div><b>Initiative</b></div><div><%= @character.initiative %></div></div>
+</div>
+<div class="row">
+<div class="stat-box card col"><div><b>Speed</b></div><div><%= @character.speed %></div></div>
+
+<div class="stat-box card col"><div><b>Bonus</b></div><div>+<%= @character.proficiency %></div></div>
+</div>
 
 </div>
 <div class="col-md-5">
 <% @character.stats.recent.each do |stat| %>
-<div class="stat-block card stat-box">
-    <div><%= stat.name %></div> <div><%= stat.score %></div> <div><%= stat.modifier %></div>
+<div class="stat-block card stat-box col">
+    <div><b><%= stat.name %></b></div> <div><%= stat.score %></div> <div><%= stat.modifier %></div>
   </div>
 <% end %>
 </div>
@@ -140,7 +147,7 @@
     <div class="row">
     <div class="text-field-sm">
       <h5>Allies, Factions, and Organizations</h5>
-      <%= @character.allies %>
+      <%= markdown @character.allies %>
     </div>
   </div>
   </div>

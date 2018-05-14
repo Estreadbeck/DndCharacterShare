@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514204308) do
+ActiveRecord::Schema.define(version: 20180514210726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180514204308) do
     t.string "skin"
     t.string "hair"
     t.text "allies", default: "(please input data)"
+    t.integer "proficiency", default: 2
     t.index ["slug"], name: "index_characters_on_slug", unique: true
     t.index ["user_id"], name: "index_characters_on_user_id"
   end

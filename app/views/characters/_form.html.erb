@@ -4,10 +4,12 @@
       <%= js add_gritter(error, title: "Character Share", sticky: false ) %>
       <% end %>
     <% end %>
+
+
     <div class="row">
       <div class="col-md-5">
 
-        <div class="form-label-group">
+        <div class="form-group">
           <%= c.label :name %>
           <%= c.text_field :name, class: 'form-control' %>
         </div>
@@ -49,6 +51,13 @@
         <div class="form-label-group">
           <%= c.label :level %>
           <%= c.number_field :level, class: 'form-control small-box' %>
+        </div>
+
+        <div class="form-label-group">
+           <a tabindex="0" class="pop-link" data-placement="right" role="label" data-toggle="popover"  title="Proficiency" data-content="<%= "Levels 1-4 = +2, 
+           Levels 5-8 = +3, Levels 9-12 = +4, Levels 13-16 = +5, Levels 17-20 = +6" %>">
+          <%= c.label :proficiency %></a>
+          <%= c.number_field :proficiency, class: 'form-control small-box' %>
         </div>
 
         <div class="form-label-group">
