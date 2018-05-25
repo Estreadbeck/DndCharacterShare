@@ -51,6 +51,7 @@ body {
 
 .footer-text {
   color: #fdfdfd;
+  min-height: 80rem;
 }
 
 .site-wrapper {
@@ -125,7 +126,9 @@ body {
   margin-bottom: 1rem;
   border-radius: 5px;
   background-color: #fffd;
+  min-height: 50rem;
 }
+
 
 .card {
   float: left;
@@ -243,6 +246,19 @@ body {
   background-color: #fffe;
   width: 100%;
   padding: 10px;
+}
+
+.table-block {
+  overflow-y: scroll;
+  width: 100%;
+  margin: 5px 15px 10px 5px;
+  height: 20rem;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.table-sm {
+  height: 10rem;
 }
 
 
