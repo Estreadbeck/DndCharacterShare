@@ -79,3 +79,5 @@ gem 'cocoon', '~> 1.2', '>= 1.2.11'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 
 gem 'redcarpet', '~> 3.4'
+
+gem 'kaminari', '~> 1.1', '>= 1.1.1'

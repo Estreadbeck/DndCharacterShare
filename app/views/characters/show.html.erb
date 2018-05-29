@@ -9,8 +9,8 @@
 <h2><%= @character.name %></h2>
 <div class="row">
   <div class="col-md-3">
-<h5><a tabindex="0" class="pop-link" data-placement="right" role="label" data-toggle="popover" data-trigger="focus" title="<%= @character.race.race_name %>" data-content="<%= @character.race.race_description %>"><%= @character.race.race_name %></a></h5>
-<h5><a tabindex="0" class="pop-link" data-placement="right" role="lable" data-toggle="popover" data-trigger="focus" title="<%= @character.character_class.title %>" data-content="<%= @character.character_class.description %>"><%= @character.character_class.title %>, Level <%= @character.level %></a></h5>
+<h5><a tabindex="0" container="body" class="pop-link" data-placement="right" role="label" data-toggle="popover" data-trigger="focus" title="<%= @character.race.race_name %>" data-content="<%= @character.race.race_description %>"><%= @character.race.race_name %></a></h5>
+<h5><a tabindex="0" container="body" class="pop-link" data-placement="right" role="lable" data-toggle="popover" data-trigger="focus" title="<%= @character.character_class.title %>" data-content="<%= @character.character_class.description %>"><%= @character.character_class.title %>, Level <%= @character.level %></a></h5>
 
 <div class="row">
 <div class="stat-box card col"><div><b>AC</b></div><div><%= @character.armor_class %></div></div>
