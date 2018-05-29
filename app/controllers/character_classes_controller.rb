@@ -7,7 +7,7 @@ class CharacterClassesController < ApplicationController
   end
 
   def show
-    @character_class = CharacterClass.friendly.find(params[:id])
+    
   end
 
   def new
@@ -47,10 +47,7 @@ class CharacterClassesController < ApplicationController
     end
   end
 
-  def show
-    @character_class = CharacterClass.friendly.find(params[:id])
-  end
-
+  
   def destroy
     @character_class.destroy
     respond_to do |format|
@@ -68,7 +65,8 @@ class CharacterClassesController < ApplicationController
   def character_class_params
     params.require(:character_class).permit(:title,
                                             :description,
-                                            features_attributes: [:name, :description, :level, :id, :_destroy]                                      
+                                            features_attributes: [:name, :description, :level, :id, :_destroy],
+                                            archetypes_attributes: [:name, :level, :description, :id, :_destroy]                                      
                                             )
   end
 end

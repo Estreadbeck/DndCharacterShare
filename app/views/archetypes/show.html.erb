@@ -1,0 +1,19 @@
+<div>Class: <%= @archetype.name %></div>
+<div>Level: <%= @archetype.level %></div>
+<div>Description: <%= @archetype.description %></div>
+<h3>Features:</h3>
+<ul>
+<% @archetype.archetype_features.each do |f| %>
+  <li>
+    <%= f.feature_name %>, <%= f.feature_desc %>, <%= f.feature_level %>
+  </li>
+<% end %>
+  </ul>
+
+<div>
+  <% if logged_in?(:site_admin) %>
+    <div><%= link_to "Edit Class", edit_archetype_path(@archetype) %></div>
+    <div><%= link_to 'Delete Class', @archetype, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <% end %>
+  <div><%= link_to 'Back', admin_dashboard_path %></div>
+</div>

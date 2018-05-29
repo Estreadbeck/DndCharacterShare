@@ -5,6 +5,7 @@ class CharacterClass < ApplicationRecord
 
 
   has_many :characters
+  has_many :archetypes
   has_many :features, dependent: :destroy
   accepts_nested_attributes_for :features,
                                 allow_destroy: true,

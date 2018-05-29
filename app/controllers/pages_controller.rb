@@ -14,6 +14,7 @@ class PagesController < ApplicationController
       @character = Character.all
       @character_class = CharacterClass.all
       @race = Race.all
+      @archetype = Archetype.all
     else
       redirect_to root_path, message: "You are not authorized to access this page"
     end

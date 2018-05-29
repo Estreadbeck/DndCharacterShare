@@ -1,0 +1,53 @@
+<%= form_for(@archetype) do |a| %>
+  <% if @archetype.errors.any? %>
+    <% @archetype.errors.full_messages.each do |error| %>
+      <%= js add_gritter(error, title: "Character Share", sticky: false ) %>
+      <% end %>
+    <% end %>
+
+  <div class="form-group">
+    <%= a.label :name %>
+    <%= a.text_field :name, class: 'form-control', width: '50%' %>
+  </div>
+
+  <div class="form-group">
+    <%= a.label :description %>
+    <%= a.text_area :description, class: 'form-control', rows: 5, width: '50%' %>
+  </div>
+
+  <div class="form-group">
+    <%= a.label :level %>
+    <%= a.number_field :level, class: 'form-control', width: '50%' %>
+  </div>
+
+  <div class="form-group">
+          <%= a.label 'Class' %>
+          <%= a.collection_select(:character_class_id, CharacterClass.all, :id, :title,
+                                  {
+                                    include_blank: false,
+
+                                  },
+                                  class: 'form-control'
+                                  ) %>   
+
+        </div>
+
+<div class="form-group">
+  <h3>Archetype Features</h3> 
+    <%= a.fields_for :archetype_features do |feature| %>
+      <%= render 'archetype_feature_fields', f: feature %>
+    <% end %>
+
+     <div>
+        <%= link_to_add_association 'Add Feature', a, :archetype_features, class: 'btn btn-md btn-secondary' %>
+      </div>
+</div>
+      
+
+  <div class="form-group">
+    <%= a.submit 'Save Archetype', class: 'btn btn-primary btn-block' %>
+  </div>
+
+<% end %>
+
+<div><%= link_to 'Back', admin_dashboard_path, class: 'btn btn-warning btn-block' %></div>

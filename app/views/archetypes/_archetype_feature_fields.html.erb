@@ -1,0 +1,21 @@
+<div class="form-group">
+
+      <div class="form-group">
+        <%= f.label :feature_name %>
+        <%= f.text_field :feature_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :feature_desc %>
+        <%= f.text_area :feature_desc, class: 'form-control', rows: 5 %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :feature_level %>
+        <%= f.number_field :feature_level, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+     <%= link_to_remove_association 'Remove Feature', f, class: 'btn btn-md btn-danger' %>
+   </div>
+
+</div>

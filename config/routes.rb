@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :character_classes, only: [:index, :show, :destroy, :new, :create, :update, :edit, :sort]
   resources :races, only: [:index, :show, :destroy, :new, :create, :update, :edit, :sort]
+  resources :archetypes, only: [:index, :show, :destroy, :new, :create, :update, :edit, :sort]
 
   resources :characters do
     member do

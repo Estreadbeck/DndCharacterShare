@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514235615) do
+ActiveRecord::Schema.define(version: 20180529191439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "archetype_features", force: :cascade do |t|
+    t.string "feature_name"
+    t.text "feature_desc"
+    t.integer "feature_level"
+    t.bigint "archetype_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["archetype_id"], name: "index_archetype_features_on_archetype_id"
+  end
+
+  create_table "archetypes", force: :cascade do |t|
+    t.string "name"
+    t.integer "level"
+    t.bigint "character_class_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description", default: "(please input data)"
+    t.index ["character_class_id"], name: "index_archetypes_on_character_class_id"
+  end
 
   create_table "character_classes", force: :cascade do |t|
     t.string "title"
@@ -127,6 +147,8 @@ ActiveRecord::Schema.define(version: 20180514235615) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "archetype_features", "archetypes"
+  add_foreign_key "archetypes", "character_classes"
   add_foreign_key "characters", "character_classes"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
