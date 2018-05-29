@@ -75,3 +75,9 @@ gem 'streadbeck_view_tool', '~> 0.1.0'
 gem 'gritter', '~> 1.2'
 
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
+
+gem 'coderay', '~> 1.1', '>= 1.1.2'
+
+gem 'redcarpet', '~> 3.4'
+
+gem 'kaminari', '~> 1.1', '>= 1.1.1'

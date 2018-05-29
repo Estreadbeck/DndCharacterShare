@@ -26,12 +26,11 @@ User.create!(
     )
 puts "1 admin user created"
 
-
 3.times do |character_class|
   CharacterClass.create!(
     title: "Sample Class #{character_class}",
     description: 'This is a sample class',
-    features_attributes: [{name: 'Sample Feature 1', description: 'This is a sample feature for testing purposes', level: 1}, {name: 'Sample Feature 2', description: 'This is a sample feature for testing purposes', level: 2}, {name: 'Sample Feature 3', description: 'This is a sample feature for testing purposes', level: 3}]
+    features_attributes: [{name: 'Sample Feature 1', description: 'This is a sample feature for testing purposes', level: 1}, {name: 'Sample Feature 2', description: 'This is a sample feature for testing purposes', level: 2}, {name: 'Sample Feature 3', description: 'This is a sample feature for testing purposes', level: 3}, {name: 'Sample Feature 4', description: 'This is a sample feature for testing purposes', level: 4}, {name: 'Sample Feature 5', description: 'This is a sample feature for testing purposes', level: 5}, {name: 'Sample Feature 6', description: 'This is a sample feature for testing purposes', level: 6}, {name: 'Sample Feature 7', description: 'This is a sample feature for testing purposes', level: 7}, {name: 'Sample Feature 8', description: 'This is a sample feature for testing purposes', level: 8}, {name: 'Sample Feature 9', description: 'This is a sample feature for testing purposes', level: 9}, {name: 'Sample Feature 10', description: 'This is a sample feature for testing purposes', level: 10}]
     )
 end
 puts "created 3 classes"
@@ -40,39 +39,47 @@ puts "created 3 classes"
   Race.create!(
     race_name: "Sample Race #{race}",
     race_description: "A sample character race",
-    traits_attributes: [{name: 'Sample Trait 1', description: 'This is a sample trait for testing purposes', level: 1}, {name: 'Sample Trait 2', description: 'This is a sample trait for testing purposes', level: 2}, {name: 'Sample Trait 3', description: 'This is a sample trait for testing purposes', level: 3}]
+    traits_attributes: [{name: 'Sample Trait 1', description: 'This is a sample trait for testing purposes'}, {name: 'Sample Trait 2', description: 'This is a sample trait for testing purposes'}, {name: 'Sample Trait 3', description: 'This is a sample trait for testing purposes'}]
     )
 end
 puts 'created 4 races'
 
 
-5.times do |character|
+20.times do |character|
   Character.create!(
     name: "Character #{character}",
     race_id: Race.first.id,
     level: 1,
+    status: 1,
     character_image: "http://via.placeholder.com/350x350",
     backstory: "my sob story",
     character_class_id: CharacterClass.last.id,
+    initiative: '+2',
+    armor_class: '13',
+    speed: 30,
     user_id: User.last.id,
     stats_attributes: [ {name: 'Strength', score: 15, modifier: '+2'}, {name: 'Dexterity', score: 15, modifier: '+2'}, {name: 'Constitution', score: 15, modifier: '+2'}, {name: 'Intelligence', score: 15, modifier: '+2'}, {name: 'Wisdom', score: 15, modifier: '+2'}, {name: 'Charisma', score: 15, modifier: '+2'}]
     )
 end
-puts "created 5 characters for user 1"
+puts "created 20 characters for user 1"
 
-5.times do |character|
+20.times do |character|
   Character.create!(
-    name: "Character #{character + 10}",
+    name: "Character #{character + 20}",
     race_id: Race.last.id,
     level: 1,
+    status: 1,
     character_image: "http://via.placeholder.com/350x350",
     backstory: "my sob story",
     character_class_id: CharacterClass.first.id,
+    initiative: '+2',
+    armor_class: '13',
+    speed: 30,
     user_id: User.first.id,
     stats_attributes: [ {name: 'Strength', score: 15, modifier: '+2'}, {name: 'Dexterity', score: 15, modifier: '+2'}, {name: 'Constitution', score: 15, modifier: '+2'}, {name: 'Intelligence', score: 15, modifier: '+2'}, {name: 'Wisdom', score: 15, modifier: '+2'}, {name: 'Charisma', score: 15, modifier: '+2'}]
     )
 end
-puts "created 5 characters user 2"
+puts "created 20 characters user 2"
 
 
 

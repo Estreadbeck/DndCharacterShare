@@ -13,8 +13,15 @@
 //= require rails-ujs
 //= require jquery3
 //= require popper
-//= require gritter
 //= require bootstrap-sprockets
+//= require gritter
 //= require cocoon
 //= require turbolinks
 //= require_tree .
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
